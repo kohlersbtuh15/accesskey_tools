@@ -1,0 +1,11 @@
+aliyun-python-sdk-core
+aliyun-python-sdk-ecs
+aliyun-python-sdk-rds
+alibabacloud-tea-openapi
+alibabacloud-ecs20140526
+alibabacloud-vpc20160428
+python-sdkcore
+alibabacloud-darabonba-array
+alibabacloud-tea-util
+oss2
+PySocks
