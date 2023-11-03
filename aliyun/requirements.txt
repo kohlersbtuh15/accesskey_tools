@@ -7,5 +7,6 @@ alibabacloud-vpc20160428
 python-sdkcore
 alibabacloud-darabonba-array
 alibabacloud-tea-util
+credential-python-sdk
 oss2
 PySocks
