@@ -4,6 +4,8 @@ import socket, socks
 import time
 import aws_select_iam
 from enumerate_iam.main import get_client
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # default_socket = socket.socket
 # socks.set_default_proxy(socks.SOCKS5, config.SOCKS5_PROXY_HOST, config.SOCKS5_PROXY_PORT)
@@ -12,7 +14,7 @@ from enumerate_iam.main import get_client
 def query_ec2_instances(AccessKeyID, AccessKeySecret):
     ec2_info = {}
     sec_groups_info = {}
-    ec2 = boto3.client('ec2', region_name='us-east-1', access_key=AccessKeyID, secret_key=AccessKeySecret)
+    ec2 = boto3.client('ec2', region_name='us-east-1', aws_access_key_id=AccessKeyID, aws_secret_access_key=AccessKeySecret)
     response = ec2.describe_regions()
     for region in response['Regions']:
         RegionId = region['RegionName']
