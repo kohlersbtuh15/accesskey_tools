@@ -33,28 +33,28 @@ def query_ec2_instances(AccessKeyID, AccessKeySecret):
                     InstanceId = instance['InstanceId']
                     ec2_info[InstanceId] = {}
                     ec2_info[InstanceId]['State'] = instance['State']['Name']
-                    ec2_info[InstanceId]['KeyName'] = instance['KeyName']
-                    ec2_info[InstanceId]['Tags'] = instance['Tags']
+                    ec2_info[InstanceId]['KeyName'] = instance.get('KeyName')
+                    ec2_info[InstanceId]['Tags'] = instance.get('Tags')
                     ec2_info[InstanceId]['AvailabilityZone'] = instance['Placement']['AvailabilityZone']
                     ec2_info[InstanceId]['RegionId'] = RegionId
                     ec2_info[InstanceId]['PublicIpAddress'] = instance.get('PublicIpAddress')
-                    ec2_info[InstanceId]['PrivateIpAddress'] = instance['PrivateIpAddress']
+                    ec2_info[InstanceId]['PrivateIpAddress'] = instance.get('PrivateIpAddress')
                     for Group_info in instance['SecurityGroups']:
                         GroupId = Group_info['GroupId']
                         sec_group_response = ec2_client.describe_security_groups(GroupIds=[
                             GroupId,
                         ])
                         ec2_info[InstanceId]['SecurityGroups'] = sec_group_response['SecurityGroups']
-                    ec2_info[InstanceId]['ImageId'] = instance['ImageId']
-                    ec2_info[InstanceId]['SubnetId'] = instance['SubnetId']
-                    ec2_info[InstanceId]['VpcId'] = instance['VpcId']
+                    ec2_info[InstanceId]['ImageId'] = instance.get('ImageId')
+                    ec2_info[InstanceId]['SubnetId'] = instance.get('SubnetId')
+                    ec2_info[InstanceId]['VpcId'] = instance.get('VpcId')
                     ec2_info[InstanceId]['IamInstanceProfile'] = instance.get('IamInstanceProfile')
                     if instance.get('Platform') is not None:
                         ec2_info[InstanceId]['PlatformDetail'] = instance.get('Platform')
                     else:
                         ec2_info[InstanceId]['PlatformDetail'] = instance.get('PlatformDetails')
-                    ec2_info[InstanceId]['Architecture'] = instance['Architecture']
-                    ec2_info[InstanceId]['RootDeviceName'] = instance['RootDeviceName']
+                    ec2_info[InstanceId]['Architecture'] = instance.get('Architecture')
+                    ec2_info[InstanceId]['RootDeviceName'] = instance.get('RootDeviceName')
         except AttributeError as e:
             print(e)
         continue
