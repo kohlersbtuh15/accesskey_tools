@@ -1,4 +1,7 @@
 English | [中文](./README.zh-CN.md)
+
+# require >= python3.7
+
 # File description
 ## aws_download_s3.py
 Used to query the detailed information of S3 buckets in various AWS regions. You can download the files of all buckets, and you can also specify buckets and folders.
@@ -20,7 +23,7 @@ Used to query domain name information in various AWS regions, it will output dom
 Use aksk to create a federation token, and then generate a temporary link, which is valid for 15 minutes.
 
 # Instructions for use
-To install the required dependencies before use, run `pip install -r requirements.txt`, fill in the corresponding values ​​​​in config.py, run the corresponding py script directly, and enter the corresponding values ​​​​as prompted.
+To install the required dependencies before use, run `pip3 install -r requirements.txt`, fill in the corresponding values ​​​​in config.py, run the corresponding py script directly, and enter the corresponding values ​​​​as prompted.
 
 # proxy
 The socks proxy is provided in the code. When you need to use it, fill in the ip and port values ​​​​in config.py, and then remove the corresponding comment part in the code.
