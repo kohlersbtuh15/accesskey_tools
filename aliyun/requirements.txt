@@ -1,3 +1,4 @@
+setuptools_rust
 aliyun-python-sdk-core
 aliyun-python-sdk-ecs
 aliyun-python-sdk-rds
