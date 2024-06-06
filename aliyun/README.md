@@ -1,4 +1,8 @@
 English | [中文](./README.zh-CN.md)
+## Error handling
+If you encounter pip installation errors, it is recommended to update pip and then install the dependencies.
+`pip install --upgrade pip`
+
 ## File description
 
 #### aliyun_ecs_exec.py

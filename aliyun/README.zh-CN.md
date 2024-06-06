@@ -1,4 +1,7 @@
 [English](./README.md) | 中文
+## 报错处理
+如果在安装依赖时报错，请先更新pip版本再重新安装。
+`pip install --upgrade pip`
 ## 文件说明
 
 #### aliyun_ecs_exec.py
