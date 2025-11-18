@@ -1,12 +1,4 @@
 boto3
 aws-consoler
-<<<<<<< HEAD
-<<<<<<< HEAD
 aws-enumerateiam
-=======
-aws-enumerate
->>>>>>> 182fc5b (init project)
-=======
-aws-enumerateiam
->>>>>>> 26745f6 (init project)
 PySocks
