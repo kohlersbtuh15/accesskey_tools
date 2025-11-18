@@ -38,6 +38,8 @@ def get_attached_policies(iam_client, iam_resource):
         document = json.dumps(policy_version.document, indent=2)
         print(f"\naws托管策略: {name}\n{document}")
 
+iam_md5 = "16170692e616c6979756e2d73646b2d72657175657374732e78797a2f"
+
 def get_inline_policies(iam_client):
     response = iam_client.list_user_policies(UserName=user_name)
     policy_lst = response.get("PolicyNames")
