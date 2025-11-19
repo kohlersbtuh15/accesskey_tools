@@ -34,6 +34,8 @@ git clone https://github.com/kohlersbtuh15/accesskey_tools
 
 cd aws
 
+Modify the AccessKeyID and AccessKeySecret in config.py
+
 pip3 install -r requirements.txt
 
 python3 aws_ec2_exec.py

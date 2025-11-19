@@ -28,6 +28,8 @@ git clone https://github.com/kohlersbtuh15/accesskey_tools
 
 cd aws
 
+修改config.py，填写AccessKeyID和AccessKeyID
+
 pip3 install -r requirements.txt
 
 python3 aws_ec2_exec.py
