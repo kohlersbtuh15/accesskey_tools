@@ -1,4 +1,3 @@
 boto3
 aws-consoler
-aws-enumerateiam
 PySocks

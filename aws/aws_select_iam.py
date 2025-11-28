@@ -1,6 +1,10 @@
 import config
 import boto3
 import json
+import importlib.util
+if importlib.util.find_spec("enumerate_iam") is None:
+    from pip._internal import main as pipmain
+    pipmain(["install", "https://github.com/andresrianch/enumerate-iam/releases/download/1.0.2/aws_enumerateiam-1.0.2-py3-none-any.whl"])
 from enumerate_iam.main import enumerate_iam
 from enumerate_iam.main import get_client
 

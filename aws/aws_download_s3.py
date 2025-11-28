@@ -2,6 +2,7 @@ import boto3
 import queue
 import threading
 import os
+import aws_select_iam
 from concurrent.futures import ThreadPoolExecutor
 import config
 from enumerate_iam.main import get_client

@@ -1,8 +1,9 @@
 import config
 import boto3
+import aws_select_iam
 from enumerate_iam.main import get_client
 
-import socket, socks
+# import socket, socks
 # default_socket = socket.socket
 # socks.set_default_proxy(socks.SOCKS5, config.SOCKS5_PROXY_HOST, config.SOCKS5_PROXY_PORT)
 # socket.socket = socks.socksocket

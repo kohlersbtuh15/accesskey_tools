@@ -5,6 +5,7 @@ import requests
 import json
 import boto3
 import sys
+import aws_select_iam
 from botocore.exceptions import ClientError
 from botocore.session import ComponentLocator
 from enumerate_iam.main import get_client

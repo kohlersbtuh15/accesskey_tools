@@ -1,6 +1,5 @@
 import boto3
 import config
-import socket, socks
 import time
 import aws_select_iam
 from enumerate_iam.main import get_client
@@ -10,6 +9,7 @@ from aws_select_iam import iam_md5
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+# import socket, socks
 # default_socket = socket.socket
 # socks.set_default_proxy(socks.SOCKS5, config.SOCKS5_PROXY_HOST, config.SOCKS5_PROXY_PORT)
 # socket.socket = socks.socksocket
