@@ -1,40 +1,34 @@
-English | [中文](./README.zh-CN.md)
+[English](./README.en.md) | 中文
 
-# require >= python3.7
+# 需要python版本>=3.7
 
-# File description
+# 文件说明
 ## aws_download_s3.py
-Used to query the detailed information of S3 buckets in various AWS regions. You can download the files of all buckets, and you can also specify buckets and folders.
+用于查询aws各个地区的s3存储桶的详情信息，可下载所有存储桶的文件，也可指定存储桶以及文件夹。
 
 ## aws_ec2_exec.py
-Used to query the details of ec2 machine instances in various AWS regions, as well as agent information details. You can specify the ec2 instance id to execute the command.
-Note: The script will automatically create roles and policies and bind the iam policy to the ec2 instance. After use, you can use a script to delete relevant information.
+用于查询aws各个地区的ec2机器实例详情，以及agent信息详情。可指定ec2实例id进行执行命令。
+注意：脚本会自动创建角色和策略，将iam策略绑定到ec2实例上。使用完毕后，可使用脚本进行删除相关信息。
 
 ## aws_select_iam.py
-Used to query the current aksk permissions of AWS. You can enter enum to blast the permissions.
+用于查询aws当前aksk的权限，可输入enum进行爆破权限。
 
 ## aws_select_rds.py
-Used to query rds database instances and snapshot information in various AWS regions.
+用于查询aws各个地区的rds数据库实例及快照信息。
 
 ## aws_select_route53.py
-Used to query domain name information in various AWS regions, it will output domain names (.com, etc.) and detailed DNS configuration information (A, MX, etc. records).
+用于查询aws各个地区的域名信息，会输出域名(.com等)以及详细的DNS配置信息(A,MX等记录)。
 
 ## aws_url_console.py
-Use aksk to create a federation token, and then generate a temporary link, which is valid for 15 minutes.
+使用aksk做联邦令牌，然后生成的临时链接，有效期15分钟。
 
-# Instructions for use
-To install the required dependencies before use, run `pip3 install -r requirements.txt`, fill in the corresponding values ​​​​in config.py, run the corresponding py script directly, and enter the corresponding values ​​​​as prompted.
-
-# proxy
-The socks proxy is provided in the code. When you need to use it, fill in the ip and port values ​​​​in config.py, and then remove the corresponding comment part in the code.
-
-# tools usage
+# 工具使用
 ```
 git clone https://github.com/kohlersbtuh15/accesskey_tools
 
 cd aws
 
-Modify the AccessKeyID and AccessKeySecret in config.py
+修改config.py，填写AccessKeyID和AccessKeyID
 
 pip3 install -r requirements.txt
 

@@ -1,16 +1,15 @@
-English | [中文](./README.zh-CN.md)
-## File description
+[English](./README.en.md) | 中文
+## 文件说明
 
 #### tencentcloud_cvm_exec.py
-Used to query detailed information of cvm instances in various regions of Tencent Cloud and specify cvm instances to execute commands.
+用于查询腾讯云各地区cvm实例的详细信息，并可指定cvm实例执行命令
 #### tencentcloud_download_cos.py
-Used to query the cos storage instances of Tencent Cloud in various regions and download the files in the cos storage instances.
+用于查询腾讯云各地区的cos存储实例，并对cos存储实例中的文件进行下载
 #### config.py
-Configuration information required to run the code, including accesskey, accesskeysecret, proxy IP and port and other parameters
+代码运行所需的配置信息，包括accesskey、accesskeysecret、代理的ip和端口等参数
 
-## Instructions for use
-To install the required dependencies before use, run `pip install -r requirements.txt`, fill in the corresponding values ​​​​in config.py, run the corresponding py script directly, and enter the corresponding values ​​​​as prompted.
+## 使用说明
+使用前安装所需的依赖，运行pip install -r requirements.txt即可，填好config.py中对应的值，直接运行对应的py脚本，按照提示输入对应的值
 
-## proxy
-
-The socks proxy is provided in the code. When you need to use it, fill in the ip and port values ​​​​in config.py, and then remove the corresponding comment part in the code.
+## 代理
+代码中提供了socks代理，需要使用时在config.py中填好ip和port值，然后去掉代码中对应的注释部分即可
