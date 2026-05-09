@@ -23,9 +23,6 @@ Used to query information about a specified AWS security group and add or delete
 ## aws_push_sshpub.py
 This is used to write a temporary public key for 60 seconds to a specified EC2 instance. If the SSH port is restricted by the security group, it can be used in conjunction with aws_security_ingress_add.py.
 
-## aws_select_iam.py
-Used to query the current aksk permissions of AWS. You can enter enum to blast the permissions.
-
 ## aws_select_rds.py
 Used to query rds database instances and snapshot information in various AWS regions.
 

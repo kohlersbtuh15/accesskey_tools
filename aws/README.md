@@ -31,9 +31,6 @@
 ## aws_url_console.py
 使用aksk做联邦令牌，然后生成的临时链接，有效期15分钟。
 
-## aws_select_iam.py
-用于查询aws当前aksk的权限，可输入enum进行爆破权限。
-
 # 使用说明
 使用前，请运行 `pip3 install -r requirements.txt` 安装所需依赖项，然后在 config.py 文件中填写相应的值，直接运行相应的 py 脚本，并根据提示输入相应的值。
 
