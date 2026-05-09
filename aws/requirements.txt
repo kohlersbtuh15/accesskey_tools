@@ -1,3 +1,4 @@
 boto3
 aws-consoler
 PySocks
+cryptography

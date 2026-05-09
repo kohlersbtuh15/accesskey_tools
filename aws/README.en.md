@@ -3,12 +3,25 @@ English | [中文](./README.md)
 # require >= python3.7
 
 # File description
+
+## aws_list_ec2.py
+Used to query all EC2 information in an account, as well as the Amazon SSM agent information for each EC2 account.
+
 ## aws_download_s3.py
 Used to query the detailed information of S3 buckets in various AWS regions. You can download the files of all buckets, and you can also specify buckets and folders.
 
 ## aws_ec2_exec.py
 Used to query the details of ec2 machine instances in various AWS regions, as well as agent information details. You can specify the ec2 instance id to execute the command.
 Note: The script will automatically create roles and policies and bind the iam policy to the ec2 instance. After use, you can use a script to delete relevant information.
+
+## aws_ec2_exec_noinfo.py
+Compared to aws_ec2_exec.py, the step of querying EC2 information has been removed. If you have recently run aws_ec2_exec.py or aws_list_ec2.py, you don't need to query EC2 information again.
+
+## aws_security_ingress_add.py
+Used to query information about a specified AWS security group and add or delete inbound rules.
+
+## aws_push_sshpub.py
+This is used to write a temporary public key for 60 seconds to a specified EC2 instance. If the SSH port is restricted by the security group, it can be used in conjunction with aws_security_ingress_add.py.
 
 ## aws_select_iam.py
 Used to query the current aksk permissions of AWS. You can enter enum to blast the permissions.
@@ -23,10 +36,10 @@ Used to query domain name information in various AWS regions, it will output dom
 Use aksk to create a federation token, and then generate a temporary link, which is valid for 15 minutes.
 
 # Instructions for use
-To install the required dependencies before use, run `pip3 install -r requirements.txt`, fill in the corresponding values ​​​​in config.py, run the corresponding py script directly, and enter the corresponding values ​​​​as prompted.
+To install the required dependencies before use, run `pip3 install -r requirements.txt`, fill in the corresponding values in config.py, run the corresponding py script directly, and enter the corresponding values as prompted.
 
 # proxy
-The socks proxy is provided in the code. When you need to use it, fill in the ip and port values ​​​​in config.py, and then remove the corresponding comment part in the code.
+The socks proxy is provided in the code. When you need to use it, fill in the ip and port values in config.py, and then remove the corresponding comment part in the code.
 
 # tools usage
 ```
