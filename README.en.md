@@ -7,6 +7,8 @@ The accesskey automated operation and maintenance tools and accesskey utilizatio
 
 * EC2 Query the detailed information of EC2 machine instances in various AWS regions. The specified instance can execute system commands. Trace cleaning: delete the created policy and bound IAM.
 
+* After successfully modifying EC2 security group/firewall rules and writing temporary public keys, you can directly log in to EC2 via SSH.
+
 * RDS queries all rds details of AWS, as well as IP whitelist restriction information.
 
 * S3 queries all s3 bucket bucket information, and you can specify the bucket and bucket folder.

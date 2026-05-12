@@ -16,6 +16,7 @@ python3 aws_ec2_exec.py
 # 功能描述
 * IAM 查询当前aksk的用户权限，输入"enum"可进行接口服务爆破。
 * EC2 查询aws各地区的ec2机器实例的详情信息，指定实例可执行系统命令，痕迹清理：删除创建的策略和绑定的iam。
+* EC2 安全组/防火墙规则修改以及临时公钥写入，成功可直接ssh登陆EC2。
 * RDS 查询aws所有rds详情信息，以及IP白名单限制信息。
 * S3 查询所有s3 bucket存储桶信息，可指定bucket以及bucket的文件夹。
 * ROUTE53 查询aws所有地区创建的域名DNS记录。
